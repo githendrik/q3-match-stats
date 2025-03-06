@@ -78,7 +78,9 @@
 <script setup lang="ts">
   import type {Match} from "~/models/match";
   import type { PropType } from 'vue'
-  import {orderBy} from 'lodash'
+  import pkg from 'lodash';
+
+  const { orderBy } = pkg;
 
   const props = defineProps({
     match: {
