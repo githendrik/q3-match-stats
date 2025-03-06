@@ -1,0 +1,11 @@
+services:
+  cpma-stats:
+    image: cpma-match-stats:1.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - /Users/taarihe1/Repos/github/githendrik/q3-match-stats/examples/stats:/stats
+      - /Users/taarihe1/Repos/github/githendrik/q3-match-stats/docker-data:/data
+    environment:
+      - STATS_PATH=/stats
+      - DB_PATH=/data

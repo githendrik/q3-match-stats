@@ -1,0 +1,32 @@
+:root {
+    --quake3-red: rgb(251, 0, 0);
+    --quake3-yellow: rgb(255, 188, 27);
+}
+
+@font-face {
+    font-family: 'Q3';
+    src: url('/q3font.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-q3 {
+    font-family: 'Q3', sans-serif;
+}
+
+.text-quake-red {
+    color: var(--quake3-red);
+}
+
+.text-quake-yellow {
+    color: var(--quake3-yellow);
+}
+
+body {
+    font-family: 'Q3', sans-serif;
+    color: var(--quake3-yellow);
+}
+
+.border-q3 {
+    border-color: rgb(251, 0, 0)
+}

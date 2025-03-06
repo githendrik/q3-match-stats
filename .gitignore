@@ -1,0 +1,10 @@
+examples
+.idea
+.nuxt
+.output
+node_modules
+dist
+coverage
+matches.db
+.DS_Store
+docker-data
