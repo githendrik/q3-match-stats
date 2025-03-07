@@ -3,7 +3,7 @@
     <div class="mb-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div>Date: {{ matchDate }}</div>
-        <div>Duration: {{ matchDuration }} minutes</div>
+        <div>Duration: {{ matchDuration }}</div>
         <div>Map: {{ match.map }}</div>
         <div>Type: {{ match.type }}</div>
       </div>
@@ -81,6 +81,7 @@
   import type {Match} from "~/models/match";
   import type { PropType } from 'vue'
   import pkg from 'lodash';
+  import {secondsToDuration} from "~/util/time";
 
   const { orderBy } = pkg;
 
@@ -93,6 +94,6 @@
 
   const players = computed(() => orderBy(props.match.players, ['stats.net'], ['desc']))
   const matchDate = computed(() => new Date(props.match?.datetime).toLocaleString("de-DE", { timeZone: "UTC" }))
-  const matchDuration = computed(() => (props.match?.duration - 1) / 60)
+  const matchDuration = computed(() => secondsToDuration(props.match?.duration - 1))
 
 </script>
