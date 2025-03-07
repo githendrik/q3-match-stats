@@ -92,7 +92,7 @@
     },
   })
 
-  const players = computed(() => orderBy(props.match.players, ['stats.net'], ['desc']))
+  const players = computed(() => orderBy(props.match.players, ['stats.score'], ['desc']))
   const matchDate = computed(() => new Date(props.match?.datetime).toLocaleString("de-DE", { timeZone: "UTC" }))
   const matchDuration = computed(() => secondsToDuration(props.match?.duration - 1))
 
