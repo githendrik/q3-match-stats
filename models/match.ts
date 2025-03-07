@@ -6,6 +6,6 @@ export class Match {
     declare map: string;
     declare type: string;
     declare isTeamGame: boolean;
-    declare duration: string;
+    declare duration: number;
     declare players: Player[]
 }

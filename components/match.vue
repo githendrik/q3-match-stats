@@ -1,10 +1,12 @@
 <template>
   <div class="my-16">
     <div class="mb-8">
-      <div>Date: {{ match.datetime }}</div>
-      <div>Duration: {{ match.duration }}</div>
-      <div>Map: {{ match.map }}</div>
-      <div>Type: {{ match.type }}</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>Date: {{ matchDate }}</div>
+        <div>Duration: {{ matchDuration }} minutes</div>
+        <div>Map: {{ match.map }}</div>
+        <div>Type: {{ match.type }}</div>
+      </div>
     </div>
 
     <div class="mb-32">
@@ -23,12 +25,12 @@
                 Kills
               </p>
             </th>
-            <th class="p-4 border-b">
+            <th class="p-4 border-b hidden md:table-cell">
               <p class="block font-normal leading-none">
                 Deaths
               </p>
             </th>
-            <th class="p-4 border-b">
+            <th class="p-4 border-b hidden md:table-cell">
               <p class="block font-normal leading-none">
                 Suicides
               </p>
@@ -52,12 +54,12 @@
                 {{ player.stats.kills }}
               </p>
             </td>
-            <td class="p-4">
+            <td class="p-4 hidden md:table-cell">
               <p class="block font-normal leading-normal">
                 {{ player.stats.deaths }}
               </p>
             </td>
-            <td class="p-4">
+            <td class="p-4 hidden md:table-cell">
               <p class="block font-normal leading-normal">
                 {{ player.stats.suicides }}
               </p>
@@ -89,6 +91,8 @@
     },
   })
 
-  const players = computed(() => orderBy(props.match?.players, ['stats.net'], ['desc']))
+  const players = computed(() => orderBy(props.match.players, ['stats.net'], ['desc']))
+  const matchDate = computed(() => new Date(props.match?.datetime).toLocaleString("de-DE", { timeZone: "UTC" }))
+  const matchDuration = computed(() => (props.match?.duration - 1) / 60)
 
 </script>

@@ -8,3 +8,4 @@ coverage
 matches.db
 .DS_Store
 docker-data
+.env
